@@ -16,8 +16,6 @@ namespace BlackJack
 {
     internal class Deck
     {
-        //internal List<Card> list_ = new List<Card>();
-        //internal void list(List<Card> list)  //デッキリストの生成とシャッフル
         internal void list(List<Card> list_)  //デッキリストの生成とシャッフル
         {
             for (int i=0;i<4;i++)
@@ -42,12 +40,16 @@ namespace BlackJack
         {
             for (int j = 1; j <= 13; j++)
             {
-                //Console.WriteLine(new Card(mark, j));
                 list_.Add(new Card(mark,j));
-
             }
         }
 
+        internal static Card Hit()
+        {
+            Card tmp = Program.List[0];
+            Program.List.RemoveAt(0);
+            return tmp;
+        }
 
     }
 }
