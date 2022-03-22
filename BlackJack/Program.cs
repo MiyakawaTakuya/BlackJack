@@ -10,19 +10,45 @@ namespace BlackJack
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Black Jack Game! Please tell me Your name!!");
+            //ゲームスタートの設定
+            Console.WriteLine("こちらはBlack Jackゲームです! あなたの名前を!!");
             Deck Deck = new Deck();
             Deck.list(List);
-            
-            string a = Console.ReadLine();  //プレイヤーの名前を入力する
-            User player = new User(a);
-            player.Hit();
-            player.Hit();
-            var sum = player.HandList.Select(d => d.No_).Sum();
-            Console.WriteLine("今の"+ player.Name +"手札の中はこんな感じで、合計値は" + sum +"となっているよ");
 
-            Dealer dealer = new Dealer();  //ディーラーとのやりとりスタート
+            //TODO APIをたたきプレイヤーデータ(id,name,asset,win,playTimes)を取り寄せ、セットする
+
+            //プレイヤーの名前を入力と手札セット、掛け金セット、ディーラー引く
+            string a = Console.ReadLine();  
+            User player = new User(a);
+            Console.WriteLine("Hi! "+ player.Name + "! ");
+            player.First2Hit();
+            Console.WriteLine(player.Name + "の自己資金は ¥" + player.Asset + "です. いくらベットしますか??");
+            int bet = int.Parse(Console.ReadLine());
+            player.Bet = bet;
+            Console.WriteLine(player.Name + "が¥" + player.Bet + "をベットした");
+
+            //ディーラーとのやりとりスタート
+            //バーストするか引くのをやめるかするまで続く
+            Dealer dealer = new Dealer();  
             dealer.Question(player);
+
+            //(プレイヤー全員がバーストしていないければ)ディーラーが山札から引く
+            if (player.Sum > 21)
+            {
+                Console.WriteLine("プレイヤーは負けたため掛け金を取られた");
+                //掛け金を徴収する関数
+            }
+            else
+            {
+                Console.WriteLine("ディーラーのターン");
+                dealer.First2Hit();
+                dealer.HitOrNot();
+                Console.WriteLine("ディーラーの伏せているカードを開示した。"+ dealer.HandList[0].String + "だった");
+                Console.WriteLine("ディーラーの合計値は" + dealer.Sum + "となり");
+                dealer.Judge();
+            }
+
+            //TODO APIをたたきプレイヤーデータ(id,name,asset,win,playTimes)へ反映させる
 
         }
     }
