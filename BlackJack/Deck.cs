@@ -44,7 +44,7 @@ namespace BlackJack
             }
         }
 
-        internal static Card Hit()
+        internal static Card Draw()
         {
             Card tmp = Program.List[0];
             Program.List.RemoveAt(0);
