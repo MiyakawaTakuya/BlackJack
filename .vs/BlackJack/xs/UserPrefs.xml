@@ -1,20 +1,20 @@
 ﻿<Properties StartupConfiguration="{CD6D717C-5C05-435F-B3F5-F0B20B266913}|Default">
   <MonoDevelop.Ide.ItemProperties.BlackJack PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BlackJack/Dealer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BlackJack/Cards.cs">
     <Files>
-      <File FileName="BlackJack/Program.cs" Line="2" Column="34" />
-      <File FileName="BlackJack/Deck.cs" Line="53" Column="1" />
-      <File FileName="BlackJack/Cards.cs" Line="23" Column="29" />
-      <File FileName="BlackJack/User.cs" Line="19" Column="34" />
-      <File FileName="BlackJack/Readme.md" Line="6" Column="19" />
-      <File FileName="BlackJack/Dealer.cs" Line="1" Column="1" />
+      <File FileName="BlackJack/Program.cs" Line="53" Column="1" />
+      <File FileName="BlackJack/Deck.cs" />
+      <File FileName="BlackJack/Cards.cs" Line="18" Column="33" />
+      <File FileName="BlackJack/User.cs" />
+      <File FileName="BlackJack/Dealer.cs" />
+      <File FileName="BlackJack/Readme.md" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BlackJack" expanded="True">
             <Node name="BlackJack" expanded="True">
-              <Node name="Dealer.cs" selected="True" />
+              <Node name="Cards.cs" selected="True" />
             </Node>
           </Node>
         </State>
