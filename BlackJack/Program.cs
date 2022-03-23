@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+//API
+using System.Threading.Tasks;
+using System.IO;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace BlackJack
 {
     class Program
     {
         internal static List<Card> List = new List<Card>();
+        internal static string Name;
 
         static void Main(string[] args)
         {
@@ -16,6 +24,7 @@ namespace BlackJack
             Deck.list(List);
 
             //TODO APIをたたきプレイヤーデータ(id,name,asset,win,playTimes)を取り寄せ、セットする
+            getUser();
 
             //プレイヤーの名前を入力と手札セット、掛け金セット、ディーラー引く
             string a = Console.ReadLine();  
@@ -50,6 +59,23 @@ namespace BlackJack
 
             //TODO APIをたたきプレイヤーデータ(id,name,asset,win,playTimes)へ反映させる
 
+        }
+
+        //ユーザー情報を取り寄せるためのAPI
+        internal static void getUser()
+        {
+            String url = "https://apiblackjack.azurewebsites.net/api/todoitems/"+"2";
+            WebRequest request = WebRequest.Create(url);
+            Stream response_stream = request.GetResponse().GetResponseStream();
+            StreamReader reader = new StreamReader(response_stream);
+            var obj_from_json = JObject.Parse(reader.ReadToEnd());
+            Console.WriteLine(obj_from_json);
+            //var Name_ = obj_from_json["name"];
+            Name = obj_from_json["name"].ToString();
+            var Asset_ = obj_from_json["asset"];
+            var numOfPlay_ = obj_from_json["numOfPlay"]; 
+
+            Console.WriteLine("プレイヤー:"+ Name + ", 所持金:" + Asset_ + ", 今までの参加回数:" + numOfPlay_);
         }
     }
 }

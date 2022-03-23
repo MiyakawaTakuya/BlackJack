@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "W0FIP9qun1Ec68ZaTL1MCYfZdTsbv6f5MvS6yPcLSvn+RPuxMX5Q482ihxZUf1VP2IcfF4x7B9P4fCIA0JM5hQ==",
+  "dgSpecHash": "PfiEzzL7rsYgnF/HMDDJx0lG+csfZMHSRQQ79wvRh6RYYUm1UDDV8ZokW/psWyhuia23/UqMeYekth4iIlqVWg==",
   "success": true,
   "projectFilePath": "/Users/miyagawatakuya/G's Task/C#/BlackJack/BlackJack/BlackJack.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/miyagawatakuya/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
