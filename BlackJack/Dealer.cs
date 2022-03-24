@@ -18,9 +18,9 @@ namespace BlackJack
 
         internal void Question(User player)
         {
-            Console.WriteLine("続けてカードをひきますか？引く場合は 'y'、引かない場合は'n'を入力してください");
+            Console.WriteLine("続けてカードをひきますか？引く場合は 'hit'、引かない場合は'stay'を入力してください");
             string a = Console.ReadLine();
-            if (a == "y")
+            if (a == "hit")
             {
                 player.Hit();
                 if (player.Sum > 21)
@@ -33,7 +33,7 @@ namespace BlackJack
                     Question(player);
                 }
             }
-            else if (a == "n")
+            else if (a == "stay")
             {
                 Console.WriteLine(player.Name + "はカードを引くのをやめた");
                 Console.WriteLine("今の手札の合計値は" + player.Sum + "だ。こちらで勝負します");
@@ -57,7 +57,7 @@ namespace BlackJack
         {
             var tmp = Deck.Draw();
             HandList.Add(tmp);
-            Sum += tmp.No_;
+            Sum += tmp.Point;
         }
 
         internal void HitOrNot()
@@ -67,8 +67,8 @@ namespace BlackJack
                 var tmp = Deck.Draw();
                 Console.WriteLine(Name + "は" + tmp.String + "(" + tmp.Mark + ")を引いた");
                 HandList.Add(tmp);
-                Sum += tmp.No_;
-                Console.WriteLine(Name + "の目に見える札の合計は" + (Sum - HandList[0].No_) + "だ");
+                Sum += tmp.Point;
+                Console.WriteLine(Name + "の目に見える札の合計は" + (Sum - HandList[0].Point) + "だ");
                 HitOrNot();
             }
             else //if(Sum > 17 && Sum <=21)
@@ -77,17 +77,25 @@ namespace BlackJack
             }
         }
 
-        internal void Judge()
+        internal void Judge(List<User> players)
         {
             Console.WriteLine("勝負の結果...");
             //21以下のHandList.SumのスコアListを作成し、Maxだった人の名前を開示
-            if (Sum>21)
+            if (Sum > 21)//そもそもディーラーがバーストしてた場合
             {
-                Console.WriteLine("ディーラーはバーストしていたので、"+"〇〇の勝利");
+                Console.WriteLine("ディーラーはバーストしていたので、"+ players[0].Name +"の勝利");
             }
-            else
+            else if(Sum > players[0].Sum)
             {
-
+                Console.WriteLine("ディーラーの合計値が"+ Sum +"でディーラーの勝利");
+            }
+            else if (Sum == players[0].Sum)
+            {
+                Console.WriteLine(Sum + "で同点となり引き分け");
+            }
+            else if (Sum < players[0].Sum)
+            {
+                Console.WriteLine(players[0].Name +"の合計値が" + players[0].Sum + "で、" + players[0].Name + "の勝利！！");
             }
         }
     }

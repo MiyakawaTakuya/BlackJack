@@ -1,4 +1,4 @@
-﻿# ブラックジャック(オンライン マルチプレイ)
+﻿## ブラックジャック(オンライン マルチプレイ)
 
 ## ルール
 #21に近い方の勝ち。ただし21を超えてしまうとその時点で負け。
@@ -12,6 +12,9 @@
 #JとQとKは10として扱う
 #Aはとりあえず「1」としてだけ扱う。「11」にはしない
 #ダブルダウンなし、スプリットなし、サレンダーなし、その他特殊そうなルールなし
-#参考サイトURL:https://majandofu.com/ca-game-bj-rule-bust#:~:text=%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8C,%E6%85%8E%E9%87%8D%E3%81%AB%E8%A1%8C%E3%81%84%E3%81%BE%E3%81%97%E3%82%87%E3%81%86%E3%80%82
 
+##参考サイトURL
+#MSチュートリアル: https://docs.microsoft.com/ja-jp/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio-mac_
+#https://majandofu.com/ca-game-bj-rule-bust#:~:text=%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8C,%E6%85%8E%E9%87%8D%E3%81%AB%E8%A1%8C%E3%81%84%E3%81%BE%E3%81%97%E3%82%87%E3%81%86%E3%80%82
+#
 
