@@ -4,6 +4,14 @@ using System.Linq;
 
 namespace BlackJack
 {
+    public class TodoItem  //DBのput用 WebAPIに登録してある名前・構成と一致させている 名前はtest用の時の名残
+    {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public int Asset { get; set; }
+        public int numOfPlay { get; set; }
+    }
+
     public class User
     {
         internal string Name { get; set; }
@@ -11,10 +19,11 @@ namespace BlackJack
         internal int Sum { get; set; }
         internal int Asset { get; set; }
         internal int Bet { get; set; }
-        public User(string name)
+
+        public User(string name, int asset)
         {
-            Name = name;  //おいおいDB連携させる項目
-            Asset = 10000;  //おいおいDB連携させる項目
+            Name = name;  
+            Asset = asset;
             HandList = new List<Card>();
             Sum = 0;
             Bet = 0;  //掛け金
@@ -33,8 +42,7 @@ namespace BlackJack
             var tmp = Deck.Draw();
             Console.WriteLine(Name + "へ" + tmp.String +"("+ tmp.Mark + ")が配られた");
             HandList.Add(tmp);
-            Sum += tmp.No_;
-            //Sum = HandList.Select(d => d.No_).Sum();
+            Sum += tmp.Point;
         }
     }
 }
